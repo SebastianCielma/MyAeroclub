@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import pl.sebastiancielma.MyAeroclub.admin.common.utils.SlugifyUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +18,7 @@ public class AdminAirplaneForSaleImageService {
     @Value("${app.uploadDirectory}")
    private String uploadDirectory;
     public String uploadImage(String filename, InputStream inputStream) {
-        String newFileName = UploadedFilesNameUtils.slugifyFileName(filename);
+        String newFileName = SlugifyUtils.slugifyFileName(filename);
          newFileName = ExistinFileRenameUtils.renameIfExists(Path.of(String.valueOf(Path.of(uploadDirectory))), newFileName);
 
         Path filePath = Paths.get(uploadDirectory).resolve(newFileName);

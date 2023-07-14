@@ -1,11 +1,11 @@
-package pl.sebastiancielma.MyAeroclub.admin.service;
+package pl.sebastiancielma.MyAeroclub.admin.common.utils;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import pl.sebastiancielma.MyAeroclub.admin.common.utils.SlugifyUtils;
 
 import static org.junit.jupiter.api.Assertions.*;
-class UploadedFilesNameUtilsTest {
+class SlugifyUtilsTest {
     @ParameterizedTest
     @CsvSource({
             "test test.png, test-test.png",
@@ -14,7 +14,7 @@ class UploadedFilesNameUtilsTest {
 
     })
     void shouldSlugifyFileName(String in, String out){
-        String fileName = UploadedFilesNameUtils.slugifyFileName(in);
+        String fileName = SlugifyUtils.slugifyFileName(in);
         assertEquals(fileName, out);
 
     }

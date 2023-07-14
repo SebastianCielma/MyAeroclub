@@ -1,10 +1,7 @@
-package pl.sebastiancielma.MyAeroclub.category.model;
+package pl.sebastiancielma.MyAeroclub.common.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import pl.sebastiancielma.MyAeroclub.airplaneforsale.model.Airplane;
-
-import java.util.List;
 
 @Entity
 @Getter

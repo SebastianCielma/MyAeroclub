@@ -21,6 +21,8 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import static pl.sebastiancielma.MyAeroclub.admin.common.utils.SlugifyUtils.slugifySlug;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -87,10 +89,6 @@ public class AdminAirplaneForSaleController {
                 .build();
     }
 
-    private String slugifySlug(String slug) {
-        Slugify slugify = Slugify.builder().build();
-        return Slugify.builder().customReplacement("_", "-").build().slugify(slug);
-    }
 }
 
 

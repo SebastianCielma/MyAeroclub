@@ -9,6 +9,8 @@ import pl.sebastiancielma.MyAeroclub.admin.category.service.AdminCategoryService
 
 import java.util.List;
 
+import static pl.sebastiancielma.MyAeroclub.admin.common.utils.SlugifyUtils.slugifySlug;
+
 @RestController
 @RequestMapping("/admin/categories")
 @RequiredArgsConstructor
@@ -33,15 +35,11 @@ public class AdminCategoryController {
                 .id(id)
                 .name(adminCategoryDto.getName())
                 .description(adminCategoryDto.getDescription())
-                .slug(slugifyCategoryName(adminCategoryDto.getSlug()))
+                .slug(slugifySlug(adminCategoryDto.getSlug()))
                 .build();
 
     }
 
-    private String slugifyCategoryName(String slug) {
-       Slugify slugify = Slugify.builder().build();
-        return Slugify.builder().customReplacement("_", "-").build().slugify(slug);
-    }
 
     @PutMapping("/{id}")
     public AdminCategory updateCategory(@PathVariable Long id, @RequestBody AdminCategoryDto adminCategoryDto){

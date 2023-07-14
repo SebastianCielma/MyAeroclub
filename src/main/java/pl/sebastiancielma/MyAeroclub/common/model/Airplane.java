@@ -1,4 +1,4 @@
-package pl.sebastiancielma.MyAeroclub.airplaneforsale.model;
+package pl.sebastiancielma.MyAeroclub.common.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +18,7 @@ public class Airplane {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String category;
+    private Long categoryId;
     private String description;
     private BigDecimal price;
     private String currency;

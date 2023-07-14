@@ -22,4 +22,8 @@ public class AirplaneForSaleService {
     public Airplane getAirplanesByName(String name){
         return airplaneForSaleRepository.findByName(name).orElseThrow();
     }
+
+    public Airplane getAirplanesById(Long id) {
+        return airplaneForSaleRepository.findById(id).orElseThrow();
+    }
 }

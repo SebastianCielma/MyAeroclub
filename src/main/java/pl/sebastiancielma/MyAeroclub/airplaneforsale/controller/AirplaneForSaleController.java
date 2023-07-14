@@ -36,4 +36,8 @@ public class AirplaneForSaleController {
     public Airplane getAirplanesByName(@PathVariable String name){
         return airplaneForSaleService.getAirplanesByName(name);
     }
+    @GetMapping("/airplanesforsale/{id}")
+    public Airplane getAirplanesById(@PathVariable Long id){
+        return airplaneForSaleService.getAirplanesById(id);
+    }
 }

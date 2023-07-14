@@ -17,7 +17,7 @@ public class AdminAirplaneForSaleDto {
     private String name;
     @NotBlank
     @NotNull
-    private String category;
+    private Long categoryId;
     @NotBlank
     @Length(min = 5)
     private String description;

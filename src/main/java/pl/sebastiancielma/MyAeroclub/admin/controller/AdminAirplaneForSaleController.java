@@ -81,7 +81,7 @@ public class AdminAirplaneForSaleController {
                 .price(adminAirplaneForSaleDto.getPrice())
                 .currency(String.valueOf(adminAirplaneForSaleDto.getCurrency()))
                 .description(adminAirplaneForSaleDto.getDescription())
-                .category(adminAirplaneForSaleDto.getCategory())
+                .categoryId(adminAirplaneForSaleDto.getCategoryId())
                 .image(adminAirplaneForSaleDto.getImage())
                 .slug(slugifySlug(adminAirplaneForSaleDto.getSlug()))
                 .build();

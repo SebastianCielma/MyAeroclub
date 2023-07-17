@@ -1,12 +1,11 @@
 package pl.sebastiancielma.MyAeroclub.cart.controller.mapper;
-
-import pl.nullpointerexception.shop.cart.controller.dto.CartSummaryDto;
-import pl.nullpointerexception.shop.cart.controller.dto.CartSummaryItemDto;
-import pl.nullpointerexception.shop.cart.controller.dto.ProductDto;
-import pl.nullpointerexception.shop.cart.controller.dto.SummaryDto;
-import pl.nullpointerexception.shop.common.model.Cart;
-import pl.nullpointerexception.shop.common.model.CartItem;
-import pl.nullpointerexception.shop.common.model.Product;
+import pl.sebastiancielma.MyAeroclub.cart.controller.dto.AirplaneDto;
+import pl.sebastiancielma.MyAeroclub.cart.controller.dto.CartSummaryDto;
+import pl.sebastiancielma.MyAeroclub.cart.controller.dto.CartSummaryItemDto;
+import pl.sebastiancielma.MyAeroclub.cart.controller.dto.SummaryDto;
+import pl.sebastiancielma.MyAeroclub.cart.model.Cart;
+import pl.sebastiancielma.MyAeroclub.cart.model.CartItem;
+import pl.sebastiancielma.MyAeroclub.common.model.Airplane;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -15,9 +14,10 @@ public class CartMapper {
     public static CartSummaryDto mapToCartSummary(Cart cart) {
         return CartSummaryDto.builder()
                 .id(cart.getId())
-                .items(mapCartItems(cart.getItems()))
                 .summary(mapToSummary(cart.getItems()))
+                .items(mapCartItems(cart.getItems()))
                 .build();
+        
     }
 
     private static List<CartSummaryItemDto> mapCartItems(List<CartItem> items) {
@@ -30,24 +30,24 @@ public class CartMapper {
         return CartSummaryItemDto.builder()
                 .id(cartItem.getId())
                 .quantity(cartItem.getQuantity())
-                .product(mapToProductDto(cartItem.getProduct()))
+                .airplane(mapToAirplaneDto(cartItem.getAirplane()))
                 .lineValue(calculateLineValue(cartItem))
                 .build();
     }
 
-    private static ProductDto mapToProductDto(Product product) {
-        return ProductDto.builder()
-                .id(product.getId())
-                .name(product.getName())
-                .currency(product.getCurrency())
-                .image(product.getImage())
-                .price(product.getPrice())
-                .slug(product.getSlug())
+    private static AirplaneDto mapToAirplaneDto(Airplane airplane) {
+        return AirplaneDto.builder()
+                .id(airplane.getId())
+                .name(airplane.getName())
+                .currency(airplane.getCurrency())
+                .image(airplane.getImage())
+                .price(airplane.getPrice())
+                .slug(airplane.getSlug())
                 .build();
     }
 
     private static BigDecimal calculateLineValue(CartItem cartItem) {
-        return cartItem.getProduct().getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity()));
+        return cartItem.getAirplane().getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity()));
     }
 
     private static SummaryDto mapToSummary(List<CartItem> items) {

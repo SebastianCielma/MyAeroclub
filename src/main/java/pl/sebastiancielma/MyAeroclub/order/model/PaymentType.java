@@ -1,5 +1,5 @@
 package pl.sebastiancielma.MyAeroclub.order.model;
 
-public enum OrderStatus {
-    NEW
+public enum PaymentType {
+    BANK_TRANSFER
 }

@@ -5,13 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name ="`order`")
+@Table(name = "`order`")
 @Getter
 @Builder
 @AllArgsConstructor
@@ -24,7 +23,17 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
     @OneToMany
-    @JoinColumn(name="orderId")
+    @JoinColumn(name = "orderId")
     private List<OrderRow> orderRows;
     private BigDecimal grossValue;
+    private String firstname;
+    private String lastname;
+    private String street;
+    private String zipcode;
+    private String city;
+    private String email;
+    private String phone;
+    @OneToOne
+    private Payment payment;
 }
+

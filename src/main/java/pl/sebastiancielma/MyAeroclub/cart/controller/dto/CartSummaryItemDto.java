@@ -10,6 +10,6 @@ import java.math.BigDecimal;
 public class CartSummaryItemDto {
     private Long id;
     private int quantity;
-    private ProductDto product;
+    private AirplaneDto airplane;
     private BigDecimal lineValue;
 }

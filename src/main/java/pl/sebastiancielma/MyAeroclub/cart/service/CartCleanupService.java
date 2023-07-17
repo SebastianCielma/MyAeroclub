@@ -5,9 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.nullpointerexception.shop.common.model.Cart;
-import pl.nullpointerexception.shop.common.repository.CartItemRepository;
-import pl.nullpointerexception.shop.common.repository.CartRepository;
+import pl.sebastiancielma.MyAeroclub.cart.model.Cart;
+import pl.sebastiancielma.MyAeroclub.cart.repository.CartItemRepository;
+import pl.sebastiancielma.MyAeroclub.cart.repository.CartRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -5,9 +5,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import pl.sebastiancielma.MyAeroclub.order.model.OrderStatus;
+import pl.sebastiancielma.MyAeroclub.order.model.Payment;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
 @Getter
 @Builder
 @NoArgsConstructor

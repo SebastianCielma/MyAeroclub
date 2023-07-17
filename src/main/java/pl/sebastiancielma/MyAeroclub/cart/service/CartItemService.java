@@ -2,7 +2,7 @@ package pl.sebastiancielma.MyAeroclub.cart.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.nullpointerexception.shop.common.repository.CartItemRepository;
+import pl.sebastiancielma.MyAeroclub.cart.repository.CartItemRepository;
 
 @Service
 @RequiredArgsConstructor

@@ -2,7 +2,7 @@ package pl.sebastiancielma.MyAeroclub.cart.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import pl.nullpointerexception.shop.cart.service.CartItemService;
+import pl.sebastiancielma.MyAeroclub.cart.service.CartItemService;
 
 @RestController
 @RequestMapping("/cartItems")

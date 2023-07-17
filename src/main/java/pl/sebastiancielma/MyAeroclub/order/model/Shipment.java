@@ -1,9 +1,6 @@
 package pl.sebastiancielma.MyAeroclub.order.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,15 +10,15 @@ import java.math.BigDecimal;
 @Entity
 @Getter
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class OrderRow {
+@AllArgsConstructor
+public class Shipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long orderId;
-    private Long airplaneId;
-    private int quantity;
+    private String name;
     private BigDecimal price;
-    private Long shipmentId;
+    @Enumerated(EnumType.STRING)
+    private ShipmentType type;
+    private boolean defaultShipment;
 }

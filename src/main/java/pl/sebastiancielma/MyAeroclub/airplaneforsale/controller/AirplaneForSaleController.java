@@ -22,7 +22,7 @@ import java.util.List;
 public class AirplaneForSaleController {
     private final AirplaneForSaleService airplaneForSaleService;
 
-    @GetMapping("/airplanesforsale")
+    @GetMapping("/airplanesforsale/all")
     public Page<AirplaneForSaleListDto> getAirplanes(Pageable pageable) {
         Page<Airplane> airplanes = airplaneForSaleService.getAirplanes(pageable);
         List<AirplaneForSaleListDto> airplaneForSaleListDtos = airplanes.getContent().stream()
@@ -47,11 +47,11 @@ public class AirplaneForSaleController {
 
         return airplaneForSaleService.getAirplanesBySlug(slug);
     }
-    @GetMapping("/airplanesforsale/{name}")
+    @GetMapping("/airplanesforsale/name/{name}")
     public Airplane getAirplanesByName(@PathVariable String name){
         return airplaneForSaleService.getAirplanesByName(name);
     }
-    @GetMapping("/airplanesforsale/{id}")
+    @GetMapping("/airplanesforsale/id/{id}")
     public Airplane getAirplanesById(@PathVariable Long id){
         return airplaneForSaleService.getAirplanesById(id);
     }

@@ -2,10 +2,12 @@ package pl.sebastiancielma.MyAeroclub.cart.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import pl.nullpointerexception.shop.cart.controller.dto.CartSummaryDto;
-import pl.nullpointerexception.shop.cart.controller.mapper.CartMapper;
-import pl.nullpointerexception.shop.cart.model.dto.CartProductDto;
-import pl.nullpointerexception.shop.cart.service.CartService;
+import pl.sebastiancielma.MyAeroclub.cart.controller.dto.AirplaneDto;
+import pl.sebastiancielma.MyAeroclub.cart.controller.dto.CartSummaryDto;
+import pl.sebastiancielma.MyAeroclub.cart.controller.mapper.CartMapper;
+import pl.sebastiancielma.MyAeroclub.cart.model.Cart;
+import pl.sebastiancielma.MyAeroclub.cart.model.dto.CartAirplaneDto;
+import pl.sebastiancielma.MyAeroclub.cart.service.CartService;
 
 import java.util.List;
 
@@ -15,6 +17,7 @@ import java.util.List;
 public class CartController {
 
     private final CartService cartService;
+    private CartAirplaneDto cartAirplaneDto;
 
     @GetMapping("/{id}")
     public CartSummaryDto getCart(@PathVariable Long id){
@@ -22,12 +25,12 @@ public class CartController {
     }
 
     @PutMapping("/{id}")
-    public CartSummaryDto addProductToCart(@PathVariable Long id, @RequestBody CartProductDto cartProductDto){
-        return CartMapper.mapToCartSummary(cartService.addProductToCart(id, cartProductDto));
+    public CartSummaryDto addAirplaneToCart(@PathVariable Long id, @RequestBody CartAirplaneDto cartAirplaneDto){
+        return CartMapper.mapToCartSummary(cartService.addAirplaneToCart(id,cartAirplaneDto));
     }
 
     @PutMapping("/{id}/update")
-    public CartSummaryDto updateCart(@PathVariable Long id, @RequestBody List<CartProductDto> cartProductDtos){
-        return CartMapper.mapToCartSummary(cartService.updateCart(id, cartProductDtos));
+    public CartSummaryDto updateCart(@PathVariable Long id, @RequestBody List<CartAirplaneDto> airplaneDtos){
+        return CartMapper.mapToCartSummary(cartService.updateCart(id, airplaneDtos));
     }
 }

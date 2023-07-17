@@ -1,7 +1,7 @@
 package pl.sebastiancielma.MyAeroclub.order.service.mapper;
 import pl.sebastiancielma.MyAeroclub.cart.model.Cart;
 import pl.sebastiancielma.MyAeroclub.cart.model.CartItem;
-import pl.sebastiancielma.MyAeroclub.order.model.OrderStatus;
+import pl.sebastiancielma.MyAeroclub.common.model.OrderStatus;
 import pl.sebastiancielma.MyAeroclub.order.model.*;
 import pl.sebastiancielma.MyAeroclub.order.model.dto.OrderDto;
 import pl.sebastiancielma.MyAeroclub.order.model.dto.OrderSummary;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class OrderMapper {
-    public static Order createNewOrder(OrderDto orderDto, Cart cart, Shipment shipment, Payment payment) {
+    public static Order createNewOrder(OrderDto orderDto, Cart cart, Shipment shipment, Payment payment, Long userId) {
         return Order.builder()
                 .firstname(orderDto.getFirstname())
                 .lastname(orderDto.getLastname())
@@ -24,6 +24,7 @@ public class OrderMapper {
                 .orderStatus(OrderStatus.NEW)
                 .grossValue(calculateGrossValue(cart.getItems(), shipment))
                 .payment(payment)
+                .userId(userId)
                 .build();
     }
 

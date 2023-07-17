@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import pl.sebastiancielma.MyAeroclub.common.model.OrderStatus;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -35,5 +37,6 @@ public class Order {
     private String phone;
     @OneToOne
     private Payment payment;
+    private Long userId;
 }
 

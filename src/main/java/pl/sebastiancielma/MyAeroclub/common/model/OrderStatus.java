@@ -1,6 +1,6 @@
-package pl.sebastiancielma.MyAeroclub.admin.order.model;
+package pl.sebastiancielma.MyAeroclub.common.model;
 
-public enum AdminOrderStatus {
+public enum OrderStatus {
     NEW("New"),
     PAID("Paid"),
     PROCESSING("Processing"),
@@ -10,7 +10,7 @@ public enum AdminOrderStatus {
 
     private String value;
 
-    AdminOrderStatus(String value) {
+    OrderStatus(String value) {
         this.value = value;
     }
 
@@ -18,3 +18,4 @@ public enum AdminOrderStatus {
         return value;
     }
 }
+

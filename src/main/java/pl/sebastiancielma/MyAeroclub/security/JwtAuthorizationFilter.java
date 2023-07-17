@@ -11,7 +11,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import pl.sebastiancielma.MyAeroclub.security.model.ShopUserDetails;
+import pl.sebastiancielma.MyAeroclub.security.model.AirplaneforsaleUserDetails;
 
 import java.io.IOException;
 
@@ -48,7 +48,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                     .verify(token.replace(TOKEN_PREFIX, ""))
                     .getSubject();
             if (userName != null) {
-                ShopUserDetails userDetails = (ShopUserDetails) userDetailsService.loadUserByUsername(userName);
+                AirplaneforsaleUserDetails userDetails = (AirplaneforsaleUserDetails) userDetailsService.loadUserByUsername(userName);
                 return new UsernamePasswordAuthenticationToken(userDetails.getId(), null, userDetails.getAuthorities());
             }
         }

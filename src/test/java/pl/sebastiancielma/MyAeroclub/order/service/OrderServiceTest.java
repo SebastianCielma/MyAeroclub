@@ -12,7 +12,7 @@ import pl.sebastiancielma.MyAeroclub.cart.repository.CartRepository;
 import pl.sebastiancielma.MyAeroclub.common.mail.EmailClientService;
 import pl.sebastiancielma.MyAeroclub.common.mail.FakeEmailService;
 import pl.sebastiancielma.MyAeroclub.common.model.Airplane;
-import pl.sebastiancielma.MyAeroclub.order.model.OrderStatus;
+import pl.sebastiancielma.MyAeroclub.common.model.OrderStatus;
 import pl.sebastiancielma.MyAeroclub.order.model.Payment;
 import pl.sebastiancielma.MyAeroclub.order.model.PaymentType;
 import pl.sebastiancielma.MyAeroclub.order.model.Shipment;
@@ -60,8 +60,9 @@ class OrderServiceTest {
         when(paymentRepository.findById(any())).thenReturn(createPayment());
         when(orderRepository.save(any())).thenAnswer(invocation -> invocation.getArguments()[0]);
         when(emailSender.getInstance()).thenReturn(new FakeEmailService());
+        Long userId=1L;
 
-        OrderSummary orderSummary = orderService.placeOrder(orderDto);
+        OrderSummary orderSummary = orderService.placeOrder(orderDto,userId);
 
         assertThat(orderSummary).isNotNull();
         assertThat(orderSummary.getStatus()).isEqualTo(OrderStatus.NEW);

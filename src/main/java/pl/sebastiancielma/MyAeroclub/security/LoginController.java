@@ -11,12 +11,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import pl.sebastiancielma.MyAeroclub.security.model.ShopUserDetails;
+import pl.sebastiancielma.MyAeroclub.security.model.AirplaneforsaleUserDetails;
 import pl.sebastiancielma.MyAeroclub.security.model.User;
 import pl.sebastiancielma.MyAeroclub.security.model.UserRole;
 import pl.sebastiancielma.MyAeroclub.security.repository.UserRepository;
@@ -72,7 +71,7 @@ public class LoginController {
         Authentication authenticate = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(user.getId(), password)
         );
-        ShopUserDetails principal = (ShopUserDetails) authenticate.getPrincipal();
+        AirplaneforsaleUserDetails principal = (AirplaneforsaleUserDetails) authenticate.getPrincipal();
         String token = JWT.create()
                 .withSubject(String.valueOf(principal.getId()))
                 .withExpiresAt(new Date(System.currentTimeMillis() + expirationTime))

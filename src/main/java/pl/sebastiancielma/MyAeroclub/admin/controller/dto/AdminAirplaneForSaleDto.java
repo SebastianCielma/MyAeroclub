@@ -12,13 +12,19 @@ import pl.sebastiancielma.MyAeroclub.admin.model.AdminAirplaneForSaleCurrency;
 import java.math.BigDecimal;
 @Getter
 public class AdminAirplaneForSaleDto {
+    @NotBlank
     private String name;
+    @NotNull
     private Long categoryId;
+    @NotBlank
     @Length(min = 5)
     private String description;
+    @NotNull
+    @Min(0)
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private AdminAirplaneForSaleCurrency currency;
     private String image;
+    @NotBlank
     private String slug;
 }

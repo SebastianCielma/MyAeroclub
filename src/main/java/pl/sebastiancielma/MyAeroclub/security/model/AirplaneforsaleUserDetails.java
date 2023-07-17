@@ -8,14 +8,14 @@ import java.util.Collection;
 
 @Getter
 @Setter
-public class ShopUserDetails extends User {
+public class AirplaneforsaleUserDetails extends User {
     private Long id;
 
-    public ShopUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+    public AirplaneforsaleUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
     }
 
-    public ShopUserDetails(String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
+    public AirplaneforsaleUserDetails(String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
     }
 }

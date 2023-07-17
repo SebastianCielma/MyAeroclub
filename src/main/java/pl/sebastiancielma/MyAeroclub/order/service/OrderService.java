@@ -12,12 +12,16 @@ import pl.sebastiancielma.MyAeroclub.order.model.Order;
 import pl.sebastiancielma.MyAeroclub.order.model.Payment;
 import pl.sebastiancielma.MyAeroclub.order.model.Shipment;
 import pl.sebastiancielma.MyAeroclub.order.model.dto.OrderDto;
+import pl.sebastiancielma.MyAeroclub.order.model.dto.OrderListDto;
 import pl.sebastiancielma.MyAeroclub.order.model.dto.OrderSummary;
 import pl.sebastiancielma.MyAeroclub.order.repository.OrderRepository;
 import pl.sebastiancielma.MyAeroclub.order.repository.OrderRowRepository;
 import pl.sebastiancielma.MyAeroclub.order.repository.PaymentRepository;
 import pl.sebastiancielma.MyAeroclub.order.repository.ShipmentRepository;
 
+import java.util.List;
+
+import static pl.sebastiancielma.MyAeroclub.order.service.mapper.OrderDtoMapper.mapToOrderListDto;
 import static pl.sebastiancielma.MyAeroclub.order.service.mapper.OrderEmailMessageMapper.createEmailMessage;
 import static pl.sebastiancielma.MyAeroclub.order.service.mapper.OrderMapper.*;
 
@@ -35,11 +39,11 @@ public class OrderService {
     private final EmailClientService emailClientService;
 
     @Transactional
-    public OrderSummary placeOrder(OrderDto orderDto) {
+    public OrderSummary placeOrder(OrderDto orderDto, Long userId) {
         Cart cart = cartRepository.findById(orderDto.getCartId()).orElseThrow();
         Shipment shipment = shipmentRepository.findById(orderDto.getShipmentId()).orElseThrow();
         Payment payment = paymentRepository.findById(orderDto.getPaymentId()).orElseThrow();
-        Order newOrder = orderRepository.save(createNewOrder(orderDto, cart, shipment, payment));
+        Order newOrder = orderRepository.save(createNewOrder(orderDto, cart, shipment, payment, userId));
         saveOrderRows(cart, newOrder.getId(), shipment);
         clearOrderCart(orderDto);
         sendConfirmEmail(newOrder);
@@ -75,4 +79,9 @@ public class OrderService {
                 .peek(orderRowRepository::save)
                 .toList();
     }
+
+    public List<OrderListDto> getOrdersForCustomer(Long userId) {
+        return mapToOrderListDto(orderRepository.findByUserId(userId));
+    }
+
 }

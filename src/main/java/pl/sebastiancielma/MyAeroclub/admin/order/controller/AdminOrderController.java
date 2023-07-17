@@ -8,8 +8,8 @@ import pl.sebastiancielma.MyAeroclub.admin.order.controller.dto.AdminInitDataDto
 import pl.sebastiancielma.MyAeroclub.admin.order.controller.dto.AdminOrderDto;
 import pl.sebastiancielma.MyAeroclub.admin.order.controller.mapper.AdminOrderMapper;
 import pl.sebastiancielma.MyAeroclub.admin.order.model.AdminOrder;
-import pl.sebastiancielma.MyAeroclub.admin.order.model.AdminOrderStatus;
 import pl.sebastiancielma.MyAeroclub.admin.order.service.AdminOrderService;
+import pl.sebastiancielma.MyAeroclub.common.model.OrderStatus;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,10 +31,6 @@ public class AdminOrderController {
         return adminOrderService.getOrder(id);
     }
 
-    @PatchMapping("/{id}")
-    public void patchOrder(@PathVariable Long id, @RequestBody Map<String, String> values){
-        adminOrderService.patchOrder(id, values);
-    }
 
     @GetMapping("/initData")
     public AdminInitDataDto getInitData(){
@@ -43,7 +39,7 @@ public class AdminOrderController {
 
     private Map<String, String> createOrderStatusesMap() {
         HashMap<String, String> statuses = new HashMap<>();
-        for (AdminOrderStatus value : AdminOrderStatus.values()) {
+        for (OrderStatus value : OrderStatus.values()) {
             statuses.put(value.name(), value.getValue());
         }
         return statuses;

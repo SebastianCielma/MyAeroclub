@@ -27,21 +27,22 @@ public class LostPasswordService {
     @Transactional
     public void sendLostPasswordLink(EmailObject email) {
         User user = userRepository.findByUsername(email.getEmail())
-                .orElseThrow(() -> new RuntimeException("Taki email nie istnieje"));
+                .orElseThrow(() -> new RuntimeException("This email does not exist"));
 
         String hash = generateHashForLostPassword(user);
         user.setHash(hash);
         user.setHashDate(LocalDateTime.now());
         emailClientService.getInstance()
-                .send(email.getEmail(), "Zresetuj hasło", createMessage(createLink(hash)));
+                .send(email.getEmail(), "Reset your password", createMessage(createLink(hash)));
 
     }
 
     private String createMessage(String hashLink) {
-        return "Wygenerowaliśmy dla Ciebie link do zmiany hasła" +
-                "\n\nKliknij link, żeby zresetować hasło: " +
+        return "We have generated a password change link for you" +
+                "\n\n\n" +
+                "Click the link to reset your password: " +
                 "\n" + hashLink +
-                "\n\nDziękujemy.";
+                "\n\nThank You!";
     }
 
     private String createLink(String hash) {
@@ -56,16 +57,16 @@ public class LostPasswordService {
     @Transactional
     public void changePassword(ChangePassword changePassword){
         if(!Objects.equals(changePassword.getPassword(), changePassword.getRepeatPassword())) {
-            throw new RuntimeException("Hasła nie są takie same");
+            throw new RuntimeException("The passwords are not the same");
         }
         User user = userRepository.findByHash(changePassword.getHash())
-                .orElseThrow(() -> new RuntimeException("Nieprawidłowy link"));
+                .orElseThrow(() -> new RuntimeException("Invalid link"));
         if(user.getHashDate().plusMinutes(10).isAfter(LocalDateTime.now())){
             user.setPassword("{bcrypt}" + new BCryptPasswordEncoder().encode(changePassword.getPassword()));
             user.setHash(null);
             user.setHashDate(null);
         } else {
-            throw new RuntimeException("Link stracił ważność");
+            throw new RuntimeException("The link has expired");
         }
 
     }

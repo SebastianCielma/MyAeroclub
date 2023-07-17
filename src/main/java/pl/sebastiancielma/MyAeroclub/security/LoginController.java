@@ -50,10 +50,12 @@ public class LoginController {
     @PostMapping("/register")
     public Token register(@RequestBody @Valid RegisterCredentials registerCredentials) {
         if (!registerCredentials.getPassword().equals(registerCredentials.getRepeatPassword())) {
-            throw new IllegalArgumentException("Hasła nie są identyczne");
+            throw new IllegalArgumentException("\n" +
+                    "The passwords are not the same");
         }
         if (userRepository.existsByUsername(registerCredentials.getUsername())) {
-            throw new IllegalArgumentException("Taki uźytkownik już istnieje w bazie danych");
+            throw new IllegalArgumentException("\n" +
+                    "This user already exists in the database");
         }
         userRepository.save(User.builder()
                 .username(registerCredentials.getUsername())

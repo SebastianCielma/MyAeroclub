@@ -1,6 +1,7 @@
 package pl.sebastiancielma.MyAeroclub.order.service.mapper;
 import pl.sebastiancielma.MyAeroclub.cart.model.Cart;
 import pl.sebastiancielma.MyAeroclub.cart.model.CartItem;
+import pl.sebastiancielma.MyAeroclub.order.model.OrderStatus;
 import pl.sebastiancielma.MyAeroclub.order.model.*;
 import pl.sebastiancielma.MyAeroclub.order.model.dto.OrderDto;
 import pl.sebastiancielma.MyAeroclub.order.model.dto.OrderSummary;

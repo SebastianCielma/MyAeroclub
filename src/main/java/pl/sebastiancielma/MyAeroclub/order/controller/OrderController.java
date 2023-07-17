@@ -1,6 +1,7 @@
 package pl.sebastiancielma.MyAeroclub.order.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import pl.sebastiancielma.MyAeroclub.order.model.dto.InitOrder;
 import pl.sebastiancielma.MyAeroclub.order.model.dto.OrderDto;
@@ -24,7 +25,7 @@ public class OrderController {
     }
 
     @GetMapping("/initData")
-    public InitOrder initData() {
+    public InitOrder initData(@AuthenticationPrincipal String name) {
         return InitOrder.builder()
                 .shipment(shipmentService.getShipments())
                 .payment(paymentService.getPayments())

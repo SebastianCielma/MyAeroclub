@@ -15,7 +15,7 @@ https://www.youtube.com/watch?v=j98CbAjsVPY
 ## Tools which I used to build backend side of this app
 -Java
 
--Spring boot(Hibernate,Jpa repository, Spring security)
+-Spring boot(Hibernate,Jpa repository, Spring security, Spring Web)
 
 -Jwt
 
@@ -30,6 +30,10 @@ https://www.youtube.com/watch?v=j98CbAjsVPY
 -Mockito
 
 -Maven
+
+-OpenAPI
+
+-TestContainers
 
 -JavaMailSender
 

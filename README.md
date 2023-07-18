@@ -61,13 +61,9 @@ https://www.youtube.com/watch?v=j98CbAjsVPY
 -Ability to check the weather
 ## Swagger Api Screens
 
-![apiogolne1](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/f6206f58-0892-4a8a-8d81-3225237d4510)
+![apiogolne1](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/ec640cc7-a8fb-425f-8cef-2aab7ec0aa11)
 
-![apiogolne2](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/0729c413-106b-4573-8fc3-23ce12c39cc5)
+![apiogolne3](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/3d59448d-d4b9-41c1-9a00-371e38c4cc8c)
 
-![apiogolne3](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/1811ecd7-18d7-40e3-88f2-8bd59e2004b2)
-
-![apiogolne4](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/c7d2a12c-7a51-493f-a5c9-cc0835ddbf77)
-
-![apigolne5](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/4350462c-281a-4533-9223-9060486449dd)
+![apiogolne4](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/c6eec1b7-11a0-419d-b62e-e40a37798284)
 

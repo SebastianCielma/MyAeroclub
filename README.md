@@ -67,3 +67,6 @@ https://www.youtube.com/watch?v=j98CbAjsVPY
 
 ![apiogolne4](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/c6eec1b7-11a0-419d-b62e-e40a37798284)
 
+![apigolne5](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/1b0b31f2-6807-479e-84a2-ff91fc78a94b)
+
+

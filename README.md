@@ -58,6 +58,8 @@ https://www.youtube.com/watch?v=j98CbAjsVPY
 
 -Order statuses
 
+-Admin and Customer role
+
 -Ability to check the weather
 ## Swagger Api Screens
 

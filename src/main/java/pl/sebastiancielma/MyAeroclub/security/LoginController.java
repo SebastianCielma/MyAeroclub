@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import pl.sebastiancielma.MyAeroclub.security.exception.RegisterException;
 import pl.sebastiancielma.MyAeroclub.security.model.AirplaneforsaleUserDetails;
 import pl.sebastiancielma.MyAeroclub.security.model.User;
 import pl.sebastiancielma.MyAeroclub.security.model.UserRole;
@@ -49,12 +50,10 @@ public class LoginController {
     @PostMapping("/register")
     public Token register(@RequestBody @Valid RegisterCredentials registerCredentials) {
         if (!registerCredentials.getPassword().equals(registerCredentials.getRepeatPassword())) {
-            throw new IllegalArgumentException("\n" +
-                    "The passwords are not the same");
+            throw new RegisterException("The passwords are not the same");
         }
         if (userRepository.existsByUsername(registerCredentials.getUsername())) {
-            throw new IllegalArgumentException("\n" +
-                    "This user already exists in the database");
+            throw new RegisterException("This user already exists in the database");
         }
         userRepository.save(User.builder()
                 .username(registerCredentials.getUsername())

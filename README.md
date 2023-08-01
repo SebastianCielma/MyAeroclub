@@ -58,6 +58,8 @@ https://www.youtube.com/watch?v=j98CbAjsVPY
 
 -Order statuses
 
+-Admin and Customer role
+
 -Ability to check the weather
 ## Swagger Api Screens
 
@@ -66,4 +68,7 @@ https://www.youtube.com/watch?v=j98CbAjsVPY
 ![apiogolne3](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/3d59448d-d4b9-41c1-9a00-371e38c4cc8c)
 
 ![apiogolne4](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/c6eec1b7-11a0-419d-b62e-e40a37798284)
+
+![apigolne5](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/1b0b31f2-6807-479e-84a2-ff91fc78a94b)
+
 

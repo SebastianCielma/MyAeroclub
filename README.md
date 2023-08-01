@@ -61,6 +61,8 @@ https://www.youtube.com/watch?v=j98CbAjsVPY
 -Admin and Customer role
 
 -Ability to check the weather
+
+-Handling errors and exceptions
 ## Swagger Api Screens
 
 ![apiogolne1](https://github.com/SebastianCielma/MyAeroclub/assets/125566458/ec640cc7-a8fb-425f-8cef-2aab7ec0aa11)
